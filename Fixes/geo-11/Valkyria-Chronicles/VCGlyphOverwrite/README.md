@@ -1,0 +1,1 @@
+Never trust random exe's you download from a Github source tree.
