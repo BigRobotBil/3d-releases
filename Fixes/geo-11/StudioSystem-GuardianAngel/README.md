@@ -118,6 +118,7 @@ Remaining issues:
 - Uses DHR's 2017 Unity Regular Expression file to fix common issues with the game (shadows, halos, etc). The bulk of the fix is in this regex
   - The original release can be found [here](https://helixmod.blogspot.com/2018/09/unity-universal-fix.html)
 - Shader for the arrow beneath Becky and the crosshair were fixed by Zeek
+- [`adjust_from_depth_buffer`](https://github.com/bo3b/3Dmigoto/wiki/Auto-Crosshair)
 
 ## Thanks
 - Members of the HelixMod community that have made fixes over the years.  Even without that much direct documentation (and myself knowing nothing about shaders at all), it really wasn't too difficult to start putting pieces together after going through created fixes
@@ -129,7 +130,8 @@ If you want to experience my time trying to understand how to fix the crosshair,
 
 ## LICENSE
 
-- For any fixes/patterns/whatever that I have created directly within this archive, do whatever you want.  If you learn something, that's all that matters.  If you want to give me credit for something, that's `pretty neat`
+- For any fixes/patterns/whatever that I have created directly within this archive, do whatever you want.  Please reference the [Beerware license](https://fedoraproject.org/wiki/Licensing/Beerware) (but with me instead) for more information
+    - If you learn something, that's all that matters.  If you want to give me credit for something, that's `pretty neat`
 - For any fixes/patterns included from other individuals, please reference their release information for how they should be attributed and/or reused
 
 ----Zeek/BigRobotBil

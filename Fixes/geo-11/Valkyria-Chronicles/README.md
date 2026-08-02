@@ -146,6 +146,7 @@ Remaining issues:
 - Shadows and texture overrides by Zeek, using old fixes by the community (particularly masterotaku's) as a blueprint on how to fix them
 - Masterotaku's fix for the water shader/reflections
 - FluffyQuack for providing tools for texture replacements and having their code be open source
+- [`adjust_from_depth_buffer`](https://github.com/bo3b/3Dmigoto/wiki/Auto-Crosshair)
 
 ## Thanks
 - [eqzitara's original fix, which showed what was ultimately possible over ten years ago](https://helixmod.blogspot.com/2016/03/valkyria-chronicles.html)
