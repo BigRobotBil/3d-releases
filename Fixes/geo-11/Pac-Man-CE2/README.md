@@ -1,6 +1,6 @@
- # _Mirage Feathers_ - geo-11 Stereoscopic 3D Fix
+ # _Pac-Man CE2_ - geo-11 Stereoscopic 3D Fix
 
- _If you want to see the journey it took to get to this point, please [start here](../../../tutorials/mirage-feathers/README.md)_
+ _If you want to see the journey it took to get to this point, please [start here](../../../tutorials/pac-man-ce2/README.md)_
 
 - [Changelog](#changelog)
 - [General](#general)
@@ -28,17 +28,17 @@
 
 ## General
 
- [Store Link](https://store.steampowered.com/app/2719060/Mirage_Feathers/)
+ [Store Link](https://store.steampowered.com/app/441380/PACMAN_CHAMPIONSHIP_EDITION_2/)
 
 Fix was created for the following build number of the game's executable:
 
-- `2019.4.34.6987694`
+- `5.3.4.8630773`
 
 Fix was tested with the following version(s) of geo-11:
 
-- `v0.7.7`
+- `v0.7.10`
 
-If either of these items change due to updates, this fix may no longer work.  Any updates to this fix will be posted to [the repo](https://github.com/BigRobotBil/3d-releases/blob/main/Fixes/geo-11/Mirage-Feathers/) it was downloaded from.
+If either of these items change due to updates, this fix may no longer work.  Any updates to this fix will be posted to [the repo](https://github.com/BigRobotBil/3d-releases/blob/main/Fixes/geo-11/Pac-Man-CE2/) it was downloaded from.
 
 This fix was tested in the following environments and performed as expected in relation to the display type:
 
@@ -51,13 +51,13 @@ An Nvidia 5070 Ti was used to test/develop this fix.  Other brands/models are un
 
 ## Instructions
 
-- geo-11 `v0.7.7` is included in this archive
+- geo-11 `v0.7.10` is included in this archive
 
-Download the `7z` archive [included in this folder](./geo11_mirage_feathers_1.0.7z).
+Download the `7z` archive [included in this folder](./geo11_pac_man_ce2_1.0.7z).
 
-Navigate to the game's executable `Mirage Feathers.exe`:
+Navigate to the game's executable `PCE2.exe`:
 
-`<path to your Steam library>\steamapps\common\Mirage Feathers\`
+`<path to your Steam library>\steamapps\common\FLUID\`
 
 Place all files within this archive in the same directory.  Meaning in the same folder as the game's main executable, you should now have `d3dx.ini`, `nvapi64.dll`, `ShaderFixes\`, etc.
 
@@ -68,48 +68,51 @@ Adjust settings in-game or within the `d3dxdm.ini` to your liking, which include
 
 ### Control Setup
 
+_If you are using a controller, please scroll down to the **WARNING**_
+
 The following key/controller bindings are active:
-- Cycle through two depth presets (`40` and `60`)
-  - Header: `KeyDepthPresets`
+- Cycle through depth and convergence presets (`50`, `100`, `150`, `200`)
+  - Due to how depth/convergence are automatically adjusted, you must be unpaused in-game to see the cycle occur
+  - Header: `KeyPresets`
   - `1` (in the number row)
-  - `Select`/`Back`/`Minus`/`View`/`Whatever Sony Calls It`
+  - `Left Stick Button`/`L3`
 - Toggle HUD/All 2D Elements pushed in
+  - Should only be used when playing at low depth/convergence
   - Header: `KeyHUDDepthToggle`
   - `2` (in number row)
   - `Right Stick Button`/`R3`
+- Kill 3D
+  - Header: `KeyKill3D`
+  - `F`
+  - `Back`
+  - This is a hold based toggle. The effect will last until you let go of the button
 
 Key bindings can be adjusted by editing the relevant sections in the `d3dx.ini` file.
 
 > [!NOTE]
 > Please reference <a href="https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes">the list of Virtual Keycodes</a> for precise mapping
 
+> [!WARNING]
+> If using a controller, you MUST remap the control buttons mentioned above in Steam Input to _not_ be the Steam Input `GAME ACTION` items, rather the direct controller buttons (or, if you changed it like the example above, it must match that). If you do not, the buttons will not function properly. This is due to Steam Input not identifying directly as the XInput buttons being used. For example, you must assign `L3` to the `L3` of your controller, _and not_ the Steam Input item
+
+<a href="screenshots/ControllerExample1.png">Example controller configuration for stick assignments</a>
+
 ## Fixed Items and Issues
 
-_Mirage Feathers_ works during gameplay without issue. All issues pertain to 2D elements needing to be adjusted.
+_Pac-Man CE2_ works during gameplay without issue. All issues pertain to dynamically adjusting the depth/convergence during gameplay
 
 Fixes the following:
-- Removes 3D during cutscenes \*
-- Removes 3D during initial take off \*\*
+- Removes 3D during menus
+- Tones down the 3D during ghost hunting segments
 
 Remaining issues:
-- Boss healthbar can be somewhat distracting in 3D. However, it's not _too_ out of place
-  - Toggle described in [controls section](#control-setup) can be used based on preference, however
+- Maze transitions are still at full depth/seperation, and can be hard to look at (the `Kill 3D` toggle is meant for this; if you use a controller that has back triggers, it can be useful being assigned there for easier manipulation)
+- Some of the transitions for 3D ramping down and back up can happen in quick succession due to the conditionals being used to target them
+  - I couldn't really find anything better, unfortunately
 
-\* If you would like to disable this, within `d3dx.ini`, remove the following block under `ShaderOverride_2DElements1`:
+If you want to adjust how much the 3D is changed during ghost hunting segments, you can edit the `PresetTonedDown3D` header in the `d3dx.ini` with whatever values you'd prefer during that section.
 
-```ini
-if (ps-t0 == 20)
-  preset = No3D
-endif
-```
-
-\*\* If you would like to disable this, within `d3dx.ini`, remove the following block under `ShaderOverride_2DElements2`:
-
-```ini
-if (ps-t0 == 30)
-  preset = No3D
-endif
-```
+Similarly, if you want to adjust the toggling for `Kill 3D` to adjust the separation/convergence, you can edit that under the `KeyKill3D` header in the `d3dx.ini`.
 
 ## Credits
 
@@ -118,7 +121,6 @@ endif
 
 ## Thanks
 
-- Masterotaku for answering my questions once again
 - Members of the HelixMod community that have made fixes over the years.  Even without that much direct documentation (and myself knowing nothing about shaders at all), it really wasn't too difficult to start putting pieces together after going through created fixes
 
 ## LICENSE
