@@ -34,3 +34,10 @@ Remaining issues:
 - - I only noticed this during a specific ending that had a 2D texture extend to the bottom of the screen with a text overlay.  It's very minor, and only noticeable if you decide to not read the text that is on the screen
 
 </details>
+
+<details>
+<summary>1.1</summary>
+
+Everything's the same as 1.2. 1.1 is just an older version of geo-11 in comparison.
+
+</details>
