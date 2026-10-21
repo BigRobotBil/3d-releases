@@ -10,3 +10,4 @@ Inspired heavily by the work that masterotaku did for [Cuphead](https://helixmod
 
 What to do next:
 - [ ] Cutscenes with animations (with animations being a strong word) have textures that don't follow the patterns detailed here, so they will need to be captured separately
+- [ ] Courtroom chatter intermissions have different texture sizes, and will need to be dumped/adjusted like the others
