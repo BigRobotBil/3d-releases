@@ -106,15 +106,33 @@ What we want to look at are:
 So let's apply the test done earlier here:
 
 ```ini
-
 ; override for bg
+[TextureOverride_BackgroundCourtroomDefense1]
+Hash = 172c7b18
+filter_index = 10
 
 ; override for phoenix 1
+[TextureOverride_PhoenixIdle1_Complete]
+Hash = eb1eddb5
+filter_index = 20
 
 ; override for phoenix cuts
+[TextureOverride_PhoenixIdle_Pieces]
+Hash = 4c20883b
+filter_index = 20
 
 ; override for all the shaders
+[ShaderOverride_Everything]
+Hash = dc88077eb60add33
+x10 = ps-t0
 
+[ShaderOverride_Characters1]
+Hash = 94f135fbb91f266a
+x10 = ps-t0
+
+[ShaderOverride_Characters2]
+Hash = 089592c9690bf2f6
+x10 = ps-t0
 ```
 
 And in all of our shaders, we can apply the same logic as used in my original test:
@@ -139,16 +157,42 @@ And what do we get?
 
 Well, that's not good.  While the background is fine, Phoenix sure isn't. What I can best describe what is going on here is that the animation layer has been shifted, but it's only appearing as an overlay to some degree. Effectively, targetting the animation texture may _not_ be what we want to do. Actually if we look back at the texture dump:
 
-- Notice of the filename being in `()`
+- `000002-ps-t0=4c20883b(439a3858)-vs=94f135fbb91f266a-ps=710063b0e2a673fb`
+  - the texture hash is _really_ `4c20883b(439a3858)`
 
-Maybe that was a sign that the game is operating in such a way that we only really need to target the "finished" layer. Let's remove the override for that, and bring it back:
+Looking at `ShaderUsage.txt` for the dump:
+
+```xml
+<Register id=0 handle=21884090 orig_hash=439a3858>4c20883b</Register>
+...
+<Register orig_hash=439a3858 type=Texture2D width=1728 height=1728 mips=1 array=1 format="R8G8B8A8_UNORM" msaa=1 msaa_quality=0 usage="DEFAULT" bind_flags="shader_resource" cpu_access_flags=0 misc_flags=0>
+```
+
+Maybe that was a sign that the game is operating in such a way that we only really need to target the "finished" layer. Let's remove the override for that:
 
 ```ini
 ; override for bg
+[TextureOverride_BackgroundCourtroomDefense1]
+Hash = 172c7b18
+filter_index = 10
 
 ; override for phoenix 1
+[TextureOverride_PhoenixIdle1_Complete]
+Hash = eb1eddb5
+filter_index = 20
 
 ; override for all the shaders
+[ShaderOverride_Everything]
+Hash = dc88077eb60add33
+x10 = ps-t0
+
+[ShaderOverride_Characters1]
+Hash = 94f135fbb91f266a
+x10 = ps-t0
+
+[ShaderOverride_Characters2]
+Hash = 089592c9690bf2f6
+x10 = ps-t0
 ```
 
 And?
@@ -268,17 +312,20 @@ filter_index = 20
 
 And with that, let's go back to---
 
-- Screenshot of the courtroom again
+<p align="center">
+    <a href="figuringscreens_matchingtextures/figuringscreens_phoenixcourt.webp"><img src="figuringscreens_matchingtextures/figuringscreens_phoenixcourt.webp" width="70%" height="70%"></a>
+    <p align="center">Oh hey, Phoenix looks good, and I don't even have to override his texture directly!</p>
+</p>
 
-Oh hey, Phoenix looks good, and I don't even have to override his texture directly!
+<p align="center">
+    <a href="figuringscreens_matchingtextures/figuringscreens_dickgumshoesmug.webp"><img src="figuringscreens_matchingtextures/figuringscreens_dickgumshoesmug.webp" width="70%" height="70%"></a>
+    <p align="center">I didn't even have to dump this one</p>
+</p>
 
-- Screenshot of Maya or something
-
-_Oh hey, I didn't even have to dump this one_
-
-- Screenshot of some awful character from the second game
-
-_Baby, we've got a stew going_
+<p align="center">
+    <a href="figuringscreens_matchingtextures/figuringscreens_franziskacourt.webp"><img src="figuringscreens_matchingtextures/figuringscreens_franziskacourt.webp" width="70%" height="70%"></a>
+    <p align="center"><i>Baby, we've got a stew going</i></p>
+</p>
 
 Now there's some other things we still need to capture in this (hopefully we can, and we don't have to leave a `paritially fixed` banner like [some other cursed things](./../valkyria-chronicles-1/README.md)), but by and large the game doesn't really _do_ anything else. So now we can add some spices to our mix in the form of modifiers for the each layer.
 
