@@ -24,6 +24,8 @@
 
 - 1.0
   - Initial release
+- 1.1
+  - Updated to geo-11 0.7.11
 
 ## General
 
@@ -35,7 +37,7 @@ Fix was created for the following build number of the game's executable:
 
 Fix was tested with the following version(s) of geo-11:
 
-- `v0.7.10`
+- `v0.7.11`
 
 Fix was tested with the following version(s) of dgVoodoo:
 
@@ -55,9 +57,9 @@ An Nvidia GPU was used to test/develop this fix.  Other brands are untested.
 
 ## Instructions
 
-- geo-11 `v0.7.10` is included in this archive
+- geo-11 `v0.7.11` is included in this archive
 
-Download the `7z` archive [included in this folder](./geo11_refrain_1.0.7z).
+Download the `7z` archive [included in this folder](./geo11_refrain_1.1.7z).
 
 Navigate to the game's executable `RefRain.exe`:
 

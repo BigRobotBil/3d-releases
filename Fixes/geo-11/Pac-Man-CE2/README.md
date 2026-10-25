@@ -25,6 +25,8 @@
 
 - 1.0
   - Initial release
+- 1.1
+  - Updated to geo-11 0.7.11
 
 ## General
 
@@ -53,7 +55,7 @@ An Nvidia 5070 Ti was used to test/develop this fix.  Other brands/models are un
 
 - geo-11 `v0.7.10` is included in this archive
 
-Download the `7z` archive [included in this folder](./geo11_pac_man_ce2_1.0.7z).
+Download the `7z` archive [included in this folder](./geo11_pac_man_ce2_1.1.7z).
 
 Navigate to the game's executable `PCE2.exe`:
 

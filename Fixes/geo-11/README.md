@@ -1,0 +1,9 @@
+Fixes:
+- [Devotion](./Devotion/README.md)
+- [Mirage Feathers](./Mirage-Feathers/README.md)
+- [The MISSING: J.J. Macfield and the Island of Memories](./Missing-JJ/README.md)
+- [Natsuki Chronicles](./Natsuki-Chronicles/README.md)
+- [Pac-Man Championship Edition 2](./Pac-Man-CE2/README.md)
+- [RefRain -prism memories-](./RefRain/README.md)
+- [Studio System: Guardian Angel](./StudioSystem-GuardianAngel/README.md)
+- [Valkyria Chronicles](./Valkyria-Chronicles/README.md)

@@ -23,6 +23,8 @@
 
 - 1.0
   - Initial release
+- 1.1
+  - Updated to geo-11 0.7.11
 
 ## General
 
@@ -34,7 +36,7 @@ Fix was created for the following build number of the game's executable:
 
 Fix was tested with the following version(s) of geo-11:
 
-- `v0.7.10`
+- `v0.7.11`
 
 If either of these items change due to updates, this fix may no longer work.  Any updates to this fix will be posted to [the repo](https://github.com/BigRobotBil/3d-releases/blob/main/Fixes/geo-11/Natsuki-Chronicles/) it was downloaded from.
 
@@ -50,9 +52,9 @@ An Nvidia GPU was used to test/develop this fix.  Other brands are untested.
 
 ## Instructions
 
-- geo-11 `v0.7.10` is included in this archive
+- geo-11 `v0.7.11` is included in this archive
 
-Download the `7z` archive [included in this folder](./geo11_natsuki_chronicles_1.0.7z).
+Download the `7z` archive [included in this folder](./geo11_natsuki_chronicles_1.1.7z).
 
 Navigate to the game's executable `Natsuki_Desktop_Steam.exe`:
 
