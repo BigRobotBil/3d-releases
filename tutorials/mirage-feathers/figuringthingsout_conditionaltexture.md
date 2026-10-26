@@ -73,16 +73,18 @@ Now, life sucks for me since my install of Paint.NET doesn't want to show thumbn
     <p align="center"><i>Wouldn't it be hilarious if this wasn't a texture and my grand plan wasn't going to work out?</i></p>
 </p>
 
-We have it here, thankfully. Checking the file, we can see it has the dimensions of `364 x 60`. If we open the `ShaderUsage.txt` that also dumped:
+If we look in the `dedupe` folder, the hash will be the first part of the filename, and upon opening all of these in Paint.NET, we'll find that `75ad0735` is the one we're looking for.
+
+If we open the `ShaderUsage.txt` that also dumped:
 
 ```xml
 <Register orig_hash=75ad0735 type=Texture2D width=364 height=60 mips=1 array=1 format="R8G8B8A8_UNORM" msaa=1 msaa_quality=0 usage="DEFAULT" bind_flags="shader_resource" cpu_access_flags=0 misc_flags=0></Register>
 ```
 
-There's _also thankfully_ only one entry for a texture that has these exact dimensions.
+There's only one entry for that with `orig_hash`.
 
 > [!NOTE]
-> I'm not really sure if there's a better way to correlate this date between the deduped folder and the parent that has a billion things in, but that is how I've been going about it
+> I have found that _sometimes_ the hash in the dedupe folder matches up, but other times it does not. So you may need to bounce between folders to find the correct hash
 
 If we look in the parent folder of the deduped, we can find a file with this hash on the front:
 
