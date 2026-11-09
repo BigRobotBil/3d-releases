@@ -1,4 +1,5 @@
 Fixes:
+- [Atomanta](./Atomanta/README.md)
 - [Devotion](./Devotion/README.md)
 - [Mirage Feathers](./Mirage-Feathers/README.md)
 - [The MISSING: J.J. Macfield and the Island of Memories](./Missing-JJ/README.md)
